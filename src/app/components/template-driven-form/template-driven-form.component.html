@@ -1,0 +1,69 @@
+<h1>Info about company owner</h1>
+<fieldset class="fieldset">
+    <form #myForm = "ngForm">
+
+      <div class="input_div">
+        <input type="text" name="name" placeholder="name" [(ngModel)]="user.name" #nameControl = 'ngModel'
+               required
+               minlength="2"
+               maxlength="20"
+        pattern="[a-zA-Z][a-zA-Z\\-]*"
+        >
+        <span *ngIf="!nameControl.valid && (nameControl.dirty || nameControl.touched)" style="color: red">wrong name</span>
+      </div>
+
+      <div class="input_div">
+        <input type="text" name="lastName" placeholder="last name" [(ngModel)]="user.lastName" #lastNameControl= 'ngModel'
+               required
+               minlength="2"
+               maxlength="20"
+               pattern="[a-zA-Z][a-zA-Z\\-]*"
+        >
+        <span *ngIf="!lastNameControl.valid && (lastNameControl.dirty || lastNameControl.touched)" style="color: red">wrong last name</span>
+      </div>
+
+      <div class="input_div">
+        <input type="email" name="email" placeholder="email" [(ngModel)]="user.email" #emailControl= 'ngModel'
+        required
+               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        >
+        <span *ngIf="!emailControl.valid && (emailControl.dirty || emailControl.touched)" style="color: red">wrong email</span>
+
+      </div>
+
+      <div class="input_div">
+        <input type="number" name="phone" placeholder="phone number" [(ngModel)]="user.phone" #phoneControl= 'ngModel'
+               required
+               pattern="^[0-9]*$"
+        >
+        <span *ngIf="!phoneControl.valid && (phoneControl.dirty || phoneControl.touched)" style="color: red">wrong phone number</span>
+
+      </div>
+
+      <div class="input_div">
+        <input type="text" name="companyName" placeholder="company name" [(ngModel)]="user.companyName" #companyNameControl= 'ngModel'
+               required
+               minlength="2"
+               maxlength="20"
+        >
+        <span *ngIf="!companyNameControl.valid && (companyNameControl.dirty || companyNameControl.touched)" style="color: red">wrong company name</span>
+
+      </div>
+      <div class="button_div">
+        <mat-slider thumbLabel tickInterval="1" name="employee" [(ngModel)]="user.employees" #employeeControl
+                    min="1"
+        >
+        </mat-slider>
+        <button type="submit" [disabled]="!myForm.valid"
+                (click)="addNewEmployeeNumber(employeeControl.value); saveData()">Submit
+        </button>
+      </div>
+    </form>
+</fieldset>
+<div *ngIf="displayedDataFromForm" class="alert alert-success alert-message" role="alert">
+  <h2>Owner: {{user.name}} {{user.lastName}}</h2>
+  <p>email: {{user.email}}</p>
+  <p>phone: {{user.phone}}</p>
+  <p>company name: {{user.companyName}}</p>
+  <p>number of employees: {{user.employees}}</p>
+</div>

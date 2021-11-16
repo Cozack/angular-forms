@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-forms';
+
+  employeeCount!:number;
+
+  addCountOfEmployees(value:number) {
+    this.employeeCount = value
+  }
 }

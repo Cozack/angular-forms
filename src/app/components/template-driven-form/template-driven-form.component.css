@@ -1,0 +1,36 @@
+.fieldset {
+  display: flex;
+  width: 500px;
+  height: 250px;
+  align-items: center;
+  justify-content: center;
+}
+
+.input_div {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 300px;
+}
+.button_div  {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button_div mat-slider {
+  width: 70%;
+  margin-left: 10px;
+
+}
+
+.alert-message {
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+  height: 250px;
+  align-items: center;
+  justify-content: center;
+align-content: center;
+}

@@ -1,0 +1,18 @@
+<h1>List of employees</h1>
+  <form [formGroup]="employeeGroupForm" class="fieldset_reactive">
+    <fieldset style="overflow: hidden"
+      formArrayName="employees"
+      *ngFor="let employee of employeeFormArray.controls; let i = index;">
+      <div [formGroupName]="i"> employee {{i+1}}
+        <input formControlName="name" placeholder="employee name">
+        <input formControlName="lastName" placeholder="lastName">
+        <input formControlName="phone" placeholder="phone">
+        <input formControlName="email" placeholder="email">
+        <input formControlName="position" placeholder="position">
+      </div>
+
+    </fieldset>
+  </form>
+<button type="submit" [disabled]="employeeGroupForm.valid"
+        (click)="Submit()">Submit
+</button>

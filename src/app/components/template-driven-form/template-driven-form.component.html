@@ -60,10 +60,12 @@
       </div>
     </form>
 </fieldset>
-<div *ngIf="displayedDataFromForm" class="alert alert-success alert-message" role="alert">
-  <h2>Owner: {{user.name}} {{user.lastName}}</h2>
-  <p>email: {{user.email}}</p>
-  <p>phone: {{user.phone}}</p>
-  <p>company name: {{user.companyName}}</p>
-  <p>number of employees: {{user.employees}}</p>
+<div style="display: flex; justify-content: center">
+  <div *ngIf="displayedDataFromForm" class="alert alert-success alert-message" role="alert">
+    <h2>Owner: {{user.name}} {{user.lastName}}</h2>
+    <p>email: {{user.email}}</p>
+    <p>phone: {{user.phone}}</p>
+    <p>company name: {{user.companyName}}</p>
+    <p>number of employees: {{user.employees}}</p>
+  </div>
 </div>

@@ -2,18 +2,13 @@
   display: flex;
   flex-direction: column;
   width: auto;
-  height: 250px;
+  height: auto;
   align-items: center;
   justify-content: center;
 }
-
 
 input {
   margin-left: 10px;
   margin-bottom: 10px;
   width: 150px;
-}
-
-button {
-  align-self: end;
 }

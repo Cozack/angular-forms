@@ -15,12 +15,13 @@
         </div>
       </div>
     </form>
-
+    <button type="submit" [disabled]="!employeeGroupForm.valid"
+            class="disable" [class]="{disable:isDisable}"
+            (click)="Submit()">Submit
+    </button>
   </fieldset>
 </div>
-<button type="submit" [disabled]="!employeeGroupForm.valid"
-        (click)="Submit()">Submit
-</button>
+
 
   <div class="disable" [class]="{disable:!isDisable}">
     <div *ngIf="displayedDataFromReactiveForm" class="reactive_main ">

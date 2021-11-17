@@ -1,20 +1,64 @@
-<h1>List of employees</h1>
-<fieldset style="overflow: hidden">
-  <form [formGroup]="employeeGroupForm" class="fieldset_reactive"
+<div class="first_part_block ">
+  <h1>List of employees</h1>
+  <fieldset style="overflow: hidden">
+    <form [formGroup]="employeeGroupForm" class="fieldset_reactive">
+      <div formArrayName="employees">
 
-      formArrayName="employees"
-      *ngFor="let employee of employeeFormArray.controls; let i = index;">
-      <div [formGroupName]="i" >
-        <input formControlName="name" placeholder="employee name">
-        <input formControlName="lastName" placeholder="lastName" >
-        <input formControlName="phone" placeholder="phone">
-        <input formControlName="email" placeholder="email">
-        <input formControlName="position" placeholder="position">
+        <div
+          *ngFor="let employee of employeeFormArray.controls; let i = index;"
+          [formGroupName]="i">
+          <input formControlName="name" placeholder="name">
+          <input formControlName="lastName" placeholder="lastName">
+          <input formControlName="phone" placeholder="phone">
+          <input formControlName="email" placeholder="email">
+          <input formControlName="position" placeholder="position">
+        </div>
       </div>
+    </form>
 
-  </form>
+  </fieldset>
+</div>
+<button type="submit" [disabled]="!employeeGroupForm.valid"
+        (click)="Submit()">Submit
+</button>
 
-</fieldset>
-  <button type="submit" [disabled]="employeeGroupForm.valid"
-          (click)="Submit()">Submit
-  </button>
+  <div class="disable" [class]="{disable:!isDisable}">
+    <div *ngIf="displayedDataFromReactiveForm" class="reactive_main ">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="background-color: bisque">
+        <ng-container matColumnDef="num">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef><b>name</b></th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef><b>lastName</b></th>
+          <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef><b>phone</b></th>
+          <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef><b>email</b></th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef><b>position</b></th>
+          <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>

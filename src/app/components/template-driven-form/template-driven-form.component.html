@@ -1,5 +1,5 @@
 <h1>Info about company owner</h1>
-<fieldset class="fieldset">
+<fieldset class="fieldset" [class] = "{disable:isDisable}">
     <form #myForm = "ngForm">
 
       <div class="input_div">
@@ -60,7 +60,7 @@
       </div>
     </form>
 </fieldset>
-<div style="display: flex; justify-content: center">
+<div style="display: flex; justify-content: center" [class]="{disable:isDisable}" class="disable">
   <div *ngIf="displayedDataFromForm" class="alert alert-success alert-message" role="alert">
     <h2>Owner: {{user.name}} {{user.lastName}}</h2>
     <p>email: {{user.email}}</p>

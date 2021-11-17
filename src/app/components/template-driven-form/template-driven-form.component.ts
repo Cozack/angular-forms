@@ -9,6 +9,8 @@ export class TemplateDrivenFormComponent implements OnInit {
   @Output() employeesNumberEvent = new EventEmitter <number>()
 
   displayedDataFromForm:boolean = false;
+  isDisable: boolean = false;
+
 
   user = {
     name:'',
@@ -29,5 +31,6 @@ export class TemplateDrivenFormComponent implements OnInit {
 
   saveData() {
     this.displayedDataFromForm = true
+    this.isDisable = !this.isDisable
   }
 }

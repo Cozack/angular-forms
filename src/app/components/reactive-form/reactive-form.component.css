@@ -12,3 +12,22 @@ input {
   margin-bottom: 10px;
   width: 150px;
 }
+
+.reactive_main {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 65%;
+  margin: 20px 10px 30px 5px;
+}
+
+b {
+  color: brown;
+}
+
+
+.disable {
+  display: none;
+}

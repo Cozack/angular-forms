@@ -34,3 +34,6 @@ input {
   justify-content: center;
 align-content: center;
 }
+.disable {
+  display: none;
+}

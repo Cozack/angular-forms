@@ -7,6 +7,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSliderModule} from "@angular/material/slider";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatSliderModule} from "@angular/material/slider";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

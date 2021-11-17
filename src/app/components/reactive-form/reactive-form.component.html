@@ -1,26 +1,34 @@
-<div class="first_part_block " class="disable" [class]="{disable:isDisable}">
-  <h1>List of employees</h1>
-  <fieldset style="overflow: hidden">
-    <form [formGroup]="employeeGroupForm" class="fieldset_reactive">
+  <fieldset style="overflow: hidden" class="disable fieldset_reactive" [class]="{disable:isDisable}">
+    <form [formGroup]="employeeGroupForm" >
+      <h1>List of employees</h1>
       <div formArrayName="employees">
 
         <div
           *ngFor="let employee of employeeFormArray.controls; let i = index;"
           [formGroupName]="i">
-          <input formControlName="name" placeholder="name">
+<!--          <div>-->
+<!--            <div class="example-container">-->
+<!--              <mat-form-field appearance="fill">-->
+<!--                <mat-label>Enter your email</mat-label>-->
+<!--                <input matInput placeholder="pat@example.com" formControlName="email" required>-->
+<!--                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+<!--              </mat-form-field>-->
+<!--            </div>-->
+<!--          </div>-->
+          <input formControlName="name" placeholder="name" >
           <input formControlName="lastName" placeholder="lastName">
           <input formControlName="phone" placeholder="phone">
           <input formControlName="email" placeholder="email">
           <input formControlName="position" placeholder="position">
         </div>
+        <button type="submit" [disabled]="!employeeGroupForm.valid"
+                class="disable" [class]="{disable:isDisable}"
+                (click)="Submit()">Submit
+        </button>
       </div>
     </form>
-    <button type="submit" [disabled]="!employeeGroupForm.valid"
-            class="disable" [class]="{disable:isDisable}"
-            (click)="Submit()">Submit
-    </button>
   </fieldset>
-</div>
+
 
 
   <div class="disable" [class]="{disable:!isDisable}">

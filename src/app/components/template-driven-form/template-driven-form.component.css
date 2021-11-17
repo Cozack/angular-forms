@@ -1,6 +1,6 @@
 .fieldset {
   display: flex;
-  width: 500px;
+  width: auto;
   height: 250px;
   align-items: center;
   justify-content: center;
@@ -33,6 +33,7 @@ input {
   align-items: center;
   justify-content: center;
 align-content: center;
+  margin-top: 1em;
 }
 .disable {
   display: none;

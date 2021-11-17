@@ -64,4 +64,11 @@ export class ReactiveFormComponent implements OnInit {
     this.isDisable = !this.isDisable
   }
 
+  // getErrorMessage() {
+    // if (this.email.hasError('required')) {
+    //   return 'You must enter a value';
+    // }
+    //
+    // return this.email.hasError('email') ? 'Not a valid email' : '';
+  // }
 }

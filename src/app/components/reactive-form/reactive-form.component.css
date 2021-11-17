@@ -1,8 +1,7 @@
 .fieldset_reactive {
   display: flex;
-  flex-direction: column;
   width: auto;
-  height: auto;
+  height: 250px;
   align-items: center;
   justify-content: center;
 }
@@ -12,10 +11,23 @@ input {
   margin-bottom: 10px;
   width: 150px;
 }
+h1 {
+  text-align: center;
+}
 
 .reactive_main {
   display: flex;
   justify-content: center;
+}
+button {
+  float: right;
+  animation: cssAnimation 0s 20s forwards;
+  opacity: 0;
+
+}
+
+@keyframes cssAnimation {
+  to   { opacity: 1; }
 }
 
 table {
@@ -31,3 +43,14 @@ b {
 .disable {
   display: none;
 }
+/*input:invalid {*/
+/*  border: 2px dashed red;*/
+/*}*/
+
+/*input:invalid:required {*/
+/*  background-image: linear-gradient(to right, pink, lightgreen);*/
+/*}*/
+
+/*input:valid {*/
+/*  border: 2px solid black;*/
+/*}*/

@@ -10,7 +10,7 @@ export class ReactiveFormComponent implements OnInit {
 
   @Input()  set employee(value:number) {
     if (value > 1) {
-      Array(value).fill(1).forEach(() => this.createEmployee())
+      Array(value).fill(1).forEach(() => this.addItem())
       console.log(value);
     }
   }
@@ -25,8 +25,8 @@ export class ReactiveFormComponent implements OnInit {
     return this.employeeGroupForm.get('employees') as FormArray
   }
 
-  createEmployee() {
-    const employer =  this.formBuilder.group({
+  createEmployee(): FormGroup {
+    return this.formBuilder.group({
       name:['', [Validators.required,
         Validators.minLength(2),
         Validators.maxLength(20),
@@ -42,7 +42,10 @@ export class ReactiveFormComponent implements OnInit {
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       position: ['', [Validators.required]]
     })
-    this.employeeFormArray.push(employer)
+  }
+
+  addItem():void {
+    this.employeeFormArray.push(this.createEmployee())
   }
 
   constructor(private formBuilder: FormBuilder) {
